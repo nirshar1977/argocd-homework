@@ -29,6 +29,11 @@ resources:
     memory: "256Mi"
     cpu: "250m"
 
+# Service Account configuration
+serviceAccount:
+  create: true  # Ensures a service account is created for the app
+  name: my-argocd-app-service-account  # Optional name for the service account
+
 # ConfigMap with 2 custom values
 configmap:
   customValue1: "customValue1Content"
