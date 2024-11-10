@@ -1,0 +1,39 @@
+# Default values for the my-argocd-app chart
+
+replicaCount: 2  # Set replica count to 2 for 2 nginx pods
+
+# Application image configuration
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+# Service configuration
+service:
+  name: my-argocd-app-service
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Ingress configuration (disable unless you want external access)
+ingress:
+  enabled: false
+  # host: my-argocd-app.example.com
+
+# Resources configuration (optional)
+resources: 
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+
+# ConfigMap with 2 custom values
+configmap:
+  customValue1: "customValue1Content"
+  customValue2: "customValue2Content"
+
+# Persistence configuration (not necessary for nginx)
+persistence:
+  enabled: false
