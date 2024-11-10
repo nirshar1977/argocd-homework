@@ -34,6 +34,13 @@ serviceAccount:
   create: true  # Ensures a service account is created for the app
   name: my-argocd-app-service-account  # Optional name for the service account
 
+# Autoscaling configuration
+autoscaling:
+  enabled: true  # Enable autoscaling for your app
+  minReplicas: 1  # Minimum number of replicas
+  maxReplicas: 5  # Maximum number of replicas
+  targetCPUUtilizationPercentage: 80  # CPU utilization threshold to trigger scaling
+
 # ConfigMap with 2 custom values
 configmap:
   customValue1: "customValue1Content"
